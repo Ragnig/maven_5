@@ -1,0 +1,9 @@
+build:
+  image: frolvlad/alpine-oraclejdk8
+  commands:
+    - wget http://apache.claz.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+    - tar -zxvf apache-maven-3.3.9-bin.tar.gz
+    - chmod +x apache-maven-3.3.9/bin/mvn
+    - export PATH=$PWD/apache-maven-3.3.9/bin:${PATH}
+    - mvn -q install -DskipTests=true
+    - mvn test
